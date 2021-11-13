@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col-12 m-auto pt-2">
+  <h4>Cadastros</h4>
+</div>
+
+<div class="col-12 m-auto">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'cadastros:categoria_list' %}">Categorias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'cadastros:subcategoria_list' %}">Subcategorias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'cadastros:fornecedor_list' %}">Fornecedores</a>
+        </li>
+      </ul>
+</div>    
+
+{% endblock %}

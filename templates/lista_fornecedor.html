@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Prestadores de Serviço{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-5 col-sm-3 mt-5 p-0">
+      <div class="list-group">
+        <span class="list-group-item list-group-item-action subcatmenu bg-secondary bg-dark text-white">{{ categoria_nome }}</span>
+        {% for dbs in sub_db %}
+          {% if dbs.id == sub_pk %}
+            <a href="{% url 'pages:home_sub' dbs.categoria.id dbs.id %}" class="list-group-item list-group-item-action active subcatmenu">{{ dbs.nome }}</a>
+          {% else %}
+            <a href="{% url 'pages:home_sub' dbs.categoria.id dbs.id %}" class="list-group-item list-group-item-action subcatmenu">{{ dbs.nome }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-7 col-sm-9 mt-4 p-0">
+      <ul class="list-group list-group-flush">
+        {% for dbs in db %}
+          <li class="list-group-item">
+            <h4>{{ dbs.nome }}</h4>
+            <div>Endereço: {{ dbs.endereco }}</div>
+            <div>Contato: {{ dbs.contato }}</div>
+            <div>Informações: {{ dbs.informacoes }}</div>
+          </li>
+        {% endfor %}
+      </ul>
+      {% if is_paginated %}
+      {% include "pagination.html" with page=page_obj %}
+      {% endif %}
+    </div>
+{% endblock %}
+
+

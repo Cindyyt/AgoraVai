@@ -1,0 +1,42 @@
+nav a {
+    color: white;
+    font-size: 0.8em;
+}
+nav a:hover {
+    color: #3813a0e3;
+}
+
+.cadtit a:hover {
+    text-decoration: none;
+}
+
+.subcatmenu {
+    font-size: 0.9em;
+}
+
+.catmenuprin img {
+    transition: .5s ease;
+}
+    
+.catmenuprin img:hover{
+    border-radius:50%;
+    transition: 1s ease;
+}
+
+.paginacao a:hover {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.grow img {
+    opacity: 1;
+    transition: all .7s ease;
+}
+
+.grow img:hover {
+    opacity: .7;
+    transition: all .75s ease;
+    transform: scale(0.95, 0.95);
+    -ms-transform: scale(0.95, 0.95);
+    -webkit-transform: scale(0.95, 0.95);
+}

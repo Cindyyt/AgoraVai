@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col-12 m-auto pt-3 text-left">
+  <h3>Subcategorias</h3>
+</div>
+
+<div class="col-12 m-auto text-right">
+    <a href="{% url 'cadastros:cad_menu' %}" class="btn btn-info mr-2" style="width: 100px">Voltar</a>
+    <a href="{% url 'cadastros:subcategoria_create' %}" class="btn btn-success" style="width: 100px">Adicionar</a>
+</div>
+
+<div class="col-12 m-auto pt-4">
+  <table class="table table-sm">
+      <thead class="thead-light">
+          <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Categoria</th>
+              <th scope="col" style="width: 60px"></th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for dbs in db %}
+              <tr>
+                  <td scope="row" class="align-middle">{{ dbs.nome }}</td>
+                  <td scope="row" class="align-middle">{{ dbs.categoria.nome }}</td>
+                  <td scope="row">
+                      <a href="{% url 'cadastros:subcategoria_edit' dbs.id %}" class="pr-1"><i class="fas fa-edit text-info"></i></a>
+                      <a href="{% url 'cadastros:subcategoria_delete' dbs.id %}"><i class="fas fa-trash text-danger"></i></a>
+                  </td>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>    
+
+{% endblock %}
